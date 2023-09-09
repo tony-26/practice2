@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import _ from "lodash";
+import Heading from "./Components/Heading";
+import AddTask from "./Components/AddTask";
+import TaskList from "./Components/TaskList";
+import initialTasks from "./initialStates/initialTasks";
 
-function App() {
+const App = () => {
+  const [tasks, setTasks] = useState(initialTasks);
+  const [filterStatus, setFilterStatus] = useState("all");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Heading />
+      <AddTask setTasks={setTasks} tasks={tasks} />
+      <TaskList setTasks={setTasks} tasks={tasks} filterStatus={filterStatus} />
+      <button
+        onClick={() => {
+          setFilterStatus("all");
+        }}
+      >
+        all
+      </button>
+      <button
+        onClick={() => {
+          setFilterStatus("incomplete");
+        }}
+      >
+        Incompleted
+      </button>
+      <button
+        onClick={() => {
+          setFilterStatus("completed");
+        }}
+      >
+        completed
+      </button>
     </div>
   );
-}
+};
 
 export default App;
