@@ -16,7 +16,7 @@ describe("filterTasksV2", () => {
     expect(expectedResult).toEqual(result);
   });
 
-  xit("by incomplete status and by two colors", () => {
+  it("by incomplete status and by two colors", () => {
     const tasks = [
       { text: "watchTV", completed: false, color: "green" },
       { text: "play Football", completed: false, color: "blue" },

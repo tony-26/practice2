@@ -17,6 +17,11 @@ const filterTasksV2 = (tasks, filterStatus, filterColors) => {
         return true;
       }
     }
+    if (filterColors.length > 1) {
+      if (filterColors.includes(task.color)) {
+        return true;
+      }
+    }
   });
   console.log({ result });
   return result;
