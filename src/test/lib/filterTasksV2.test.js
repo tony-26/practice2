@@ -1,7 +1,7 @@
 import filterTasksV2 from "../../lib/filterTasksV2";
 
 describe("filterTasksV2", () => {
-  xit("by incomplete status and by one color", () => {
+  it("by incomplete status and by one color", () => {
     const tasks = [
       { text: "watchTV", completed: false, color: "green" },
       { text: "play Football", completed: false, color: "blue" },
@@ -16,7 +16,7 @@ describe("filterTasksV2", () => {
     expect(expectedResult).toEqual(result);
   });
 
-  it("by incomplete status and by two colors", () => {
+  xit("by incomplete status and by two colors", () => {
     const tasks = [
       { text: "watchTV", completed: false, color: "green" },
       { text: "play Football", completed: false, color: "blue" },

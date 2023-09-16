@@ -12,23 +12,11 @@ const filterTasksV2 = (tasks, filterStatus, filterColors) => {
   });
 
   const result = filteredByStatus.filter((task) => {
-    if (filterColors.length > 1) {
-      for (let i = 0; i < filterColors.length; i++) {
-        console.log(filterColors[i], task.color);
-        if (filterColors[i] === task.color) {
-          return true;
-        } else {
-        }
+    if (filterColors.length === 1) {
+      if (filterColors[0] === task.color) {
+        return true;
       }
     }
-    // i=0 => filterColors[i]="green"
-    // if (filterColors.length === 1) {
-    //   if (filterColors[0] === task.color) {
-    //     return true;
-    //   } else {
-    //     return false;
-    //   }
-    // }
   });
   console.log({ result });
   return result;
