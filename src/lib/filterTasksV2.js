@@ -11,16 +11,8 @@ const filterTasksV2 = (tasks, filterStatus, filterColors) => {
     }
   });
 
-  const result = filteredByStatus.filter((task) => {
-    if (filterColors.length === 0) return true;
-    
-    if (filterColors.length >= 1) {
-      if (filterColors.includes(task.color)) {
-        return true;
-      }
-    }
-  });
-  console.log({ result });
-  return result;
+  return filteredByStatus.filter(
+    (task) => filterColors.includes(task.color) || filterColors.length === 0
+  );
 };
 export default filterTasksV2;
