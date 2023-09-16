@@ -32,7 +32,7 @@ describe("filterTasksV2", () => {
     expect(expectedResult).toEqual(result);
   });
 
-  xit("by completed status, color empty means no colorfilter", () => {
+  it("by completed status, color empty means no colorfilter", () => {
     const tasks = [
       { text: "watchTV", completed: false, color: "green" },
       { text: "play Football", completed: false, color: "blue" },
@@ -42,7 +42,8 @@ describe("filterTasksV2", () => {
     const filterColors = [];
     const result = filterTasksV2(tasks, filterStatus, filterColors);
     const expectedResult = [
-      { text: "play piano", completed: true, color: "black" },
+      { text: "watchTV", completed: false, color: "green" },
+      { text: "play Football", completed: false, color: "blue" },
     ];
     expect(expectedResult).toEqual(result);
   });

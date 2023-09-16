@@ -12,6 +12,9 @@ const filterTasksV2 = (tasks, filterStatus, filterColors) => {
   });
 
   const result = filteredByStatus.filter((task) => {
+    if (filterColors.length === 0) {
+      return true;
+    }
     if (filterColors.length === 1) {
       if (filterColors[0] === task.color) {
         return true;
