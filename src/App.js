@@ -34,6 +34,18 @@ const App = () => {
       >
         completed
       </button>
+      <div>
+        <span>black</span>
+        <input type="checkbox" />
+        <span>green</span>
+        <input type="checkbox" />
+        <span>red</span>
+        <input type="checkbox" />
+        <span>purple</span>
+        <input type="checkbox" />
+        <span>blue</span>
+        <input type="checkbox" />
+      </div>
     </div>
   );
 };
