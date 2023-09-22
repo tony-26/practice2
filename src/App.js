@@ -37,11 +37,31 @@ const App = () => {
         completed
       </button>
       <div>
-        <ColorFilter filterColor="black" />
-        <ColorFilter filterColor="green" />
-        <ColorFilter filterColor="blue" />
-        <ColorFilter filterColor="red" />
-        <ColorFilter filterColor="purple" />
+        <ColorFilter
+          filterColor="black"
+          filterColors={filterColors}
+          setFilterColors={setFilterColors}
+        />
+        <ColorFilter
+          filterColor="green"
+          filterColors={filterColors}
+          setFilterColors={setFilterColors}
+        />
+        <ColorFilter
+          filterColor="blue"
+          filterColors={filterColors}
+          setFilterColors={setFilterColors}
+        />
+        <ColorFilter
+          filterColor="red"
+          filterColors={filterColors}
+          setFilterColors={setFilterColors}
+        />
+        <ColorFilter
+          filterColor="purple"
+          filterColors={filterColors}
+          setFilterColors={setFilterColors}
+        />
       </div>
     </div>
   );

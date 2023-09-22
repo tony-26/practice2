@@ -1,3 +1,4 @@
+import _ from "lodash";
 const ColorFilter = ({ filterColor, filterColors, setFilterColors }) => {
   return (
     <div>
@@ -6,9 +7,10 @@ const ColorFilter = ({ filterColor, filterColors, setFilterColors }) => {
         type="checkbox"
         onClick={() => {
           const copy = _.cloneDeep(filterColors);
-          copy.push(filterColor);
-          setFilterColors(copy);
-          console.log()
+          console.log({ copy, filterColors, filterColor });
+          // copy.push(filterColor);
+          // setFilterColors(copy);
+          // console.log(filterColors);
         }}
       />
     </div>
