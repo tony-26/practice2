@@ -4,10 +4,12 @@ import Heading from "./Components/Heading";
 import AddTask from "./Components/AddTask";
 import TaskList from "./Components/TaskList";
 import initialTasks from "./initialStates/initialTasks";
+import ColorFilter from "./Components/ColorFilter";
 
 const App = () => {
   const [tasks, setTasks] = useState(initialTasks);
   const [filterStatus, setFilterStatus] = useState("all");
+  const [filterColors, setFilterColors] = useState([]);
   return (
     <div>
       <Heading />
@@ -35,16 +37,11 @@ const App = () => {
         completed
       </button>
       <div>
-        <span>black</span>
-        <input type="checkbox" />
-        <span>green</span>
-        <input type="checkbox" />
-        <span>red</span>
-        <input type="checkbox" />
-        <span>purple</span>
-        <input type="checkbox" />
-        <span>blue</span>
-        <input type="checkbox" />
+        <ColorFilter filterColor="black" />
+        <ColorFilter filterColor="green" />
+        <ColorFilter filterColor="blue" />
+        <ColorFilter filterColor="red" />
+        <ColorFilter filterColor="purple" />
       </div>
     </div>
   );
