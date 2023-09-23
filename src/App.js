@@ -14,7 +14,12 @@ const App = () => {
     <div>
       <Heading />
       <AddTask setTasks={setTasks} tasks={tasks} />
-      <TaskList setTasks={setTasks} tasks={tasks} filterStatus={filterStatus} />
+      <TaskList
+        setTasks={setTasks}
+        tasks={tasks}
+        filterStatus={filterStatus}
+        filterColors={filterColors}
+      />
       <button
         onClick={() => {
           setFilterStatus("all");
@@ -63,6 +68,13 @@ const App = () => {
           setFilterColors={setFilterColors}
         />
       </div>
+      <button
+        onClick={() => {
+          console.log(filterColors);
+        }}
+      >
+        filterColors
+      </button>
     </div>
   );
 };

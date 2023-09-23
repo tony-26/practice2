@@ -1,9 +1,10 @@
 import _ from "lodash";
 import TaskItem from "./TaskItem";
 import filterTasks from "../lib/filterTasks";
+import filterTasksV2 from "../lib/filterTasksV2";
 
-const TaskList = ({ tasks, setTasks, filterStatus }) => {
-  const filteredTasks = filterTasks(tasks, filterStatus);
+const TaskList = ({ tasks, setTasks, filterStatus, filterColors }) => {
+  const filteredTasks = filterTasksV2(tasks, filterStatus, filterColors);
   return (
     <div>
       {filteredTasks.map((task, i) => (

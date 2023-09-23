@@ -7,7 +7,6 @@ const ColorFilter = ({ filterColor, filterColors, setFilterColors }) => {
         type="checkbox"
         onClick={() => {
           const copy = _.cloneDeep(filterColors);
-
           copy.push(filterColor);
           setFilterColors(copy);
         }}
@@ -16,4 +15,3 @@ const ColorFilter = ({ filterColor, filterColors, setFilterColors }) => {
   );
 };
 export default ColorFilter;
-// make black color add into array
