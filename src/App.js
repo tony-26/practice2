@@ -68,13 +68,6 @@ const App = () => {
           setFilterColors={setFilterColors}
         />
       </div>
-      <button
-        onClick={() => {
-          console.log(filterColors);
-        }}
-      >
-        filterColors
-      </button>
     </div>
   );
 };

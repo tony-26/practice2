@@ -6,16 +6,13 @@ const ColorFilter = ({ filterColor, filterColors, setFilterColors }) => {
       <input
         type="checkbox"
         onClick={() => {
-          const copy = _.cloneDeep(filterColors);
+          let copy = _.cloneDeep(filterColors);
           if (filterColors.includes(filterColor)) {
-            const sameColorFlter = copy.filter((color) => {
-              return color !== filterColor;
-            });
-            setFilterColors(sameColorFlter);
+            copy = copy.filter((color) => color !== filterColor);
           } else {
             copy.push(filterColor);
-            setFilterColors(copy);
           }
+          setFilterColors(copy);
         }}
       />
     </div>
