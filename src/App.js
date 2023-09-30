@@ -10,6 +10,7 @@ const App = () => {
   const [tasks, setTasks] = useState(initialTasks);
   const [filterStatus, setFilterStatus] = useState("all");
   const [filterColors, setFilterColors] = useState([]);
+
   return (
     <div>
       <Heading />
@@ -42,31 +43,16 @@ const App = () => {
         completed
       </button>
       <div>
-        <ColorFilter
-          filterColor="black"
-          filterColors={filterColors}
-          setFilterColors={setFilterColors}
-        />
-        <ColorFilter
-          filterColor="green"
-          filterColors={filterColors}
-          setFilterColors={setFilterColors}
-        />
-        <ColorFilter
-          filterColor="blue"
-          filterColors={filterColors}
-          setFilterColors={setFilterColors}
-        />
-        <ColorFilter
-          filterColor="red"
-          filterColors={filterColors}
-          setFilterColors={setFilterColors}
-        />
-        <ColorFilter
-          filterColor="purple"
-          filterColors={filterColors}
-          setFilterColors={setFilterColors}
-        />
+        {["black", "green", "red", "purple", "blue"].map((e, i) => {
+          return (
+            <ColorFilter
+              key={i}
+              filterColor={e}
+              filterColors={filterColors}
+              setFilterColors={setFilterColors}
+            />
+          );
+        })}
       </div>
     </div>
   );
