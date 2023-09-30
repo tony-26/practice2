@@ -24,10 +24,7 @@ const App = () => {
         filterColors={filterColors}
       />
       <StatusFilters setFilterStatus={setFilterStatus} />
-      <ColorFilterList
-        setFilterColors={setFilterColors}
-        filterColors={filterColors}
-      />
+      <ColorFilterList setFilterColors={setFilterColors} />
     </div>
   );
 };

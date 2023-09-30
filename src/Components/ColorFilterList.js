@@ -1,6 +1,6 @@
 import ColorFilter from "./ColorFilter";
 
-const ColorFilterList = ({ filterColors, setFilterColors }) => {
+const ColorFilterList = ({ setFilterColors }) => {
   return (
     <div>
       {["black", "green", "red", "purple", "blue"].map((e, i) => {
@@ -8,7 +8,6 @@ const ColorFilterList = ({ filterColors, setFilterColors }) => {
           <ColorFilter
             key={i}
             filterColor={e}
-            filterColors={filterColors}
             setFilterColors={setFilterColors}
           />
         );
