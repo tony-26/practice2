@@ -6,6 +6,7 @@ import TaskList from "./Components/TaskList";
 import initialTasks from "./initialStates/initialTasks";
 import ColorFilter from "./Components/ColorFilter";
 import StatusFilters from "./Components/StatusFilters";
+import ColorFilterList from "./Components/ColorFilterList";
 
 const App = () => {
   const [tasks, setTasks] = useState(initialTasks);
@@ -23,18 +24,10 @@ const App = () => {
         filterColors={filterColors}
       />
       <StatusFilters setFilterStatus={setFilterStatus} />
-      <div>
-        {["black", "green", "red", "purple", "blue"].map((e, i) => {
-          return (
-            <ColorFilter
-              key={i}
-              filterColor={e}
-              filterColors={filterColors}
-              setFilterColors={setFilterColors}
-            />
-          );
-        })}
-      </div>
+      <ColorFilterList
+        setFilterColors={setFilterColors}
+        filterColors={filterColors}
+      />
     </div>
   );
 };
