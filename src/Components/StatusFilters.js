@@ -1,28 +1,11 @@
-const StatusFilters = ({ setFilterStatus }) => {
-  return (
-    <div>
-      <button
-        onClick={() => {
-          setFilterStatus("all");
-        }}
-      >
-        all
+const StatusFilters = ({ setFilterStatus }) => (
+  <div>
+    {["all", "incomplete", "completed"].map((e, i) => (
+      <button key={i} onClick={() => setFilterStatus(e)}>
+        {e}
       </button>
-      <button
-        onClick={() => {
-          setFilterStatus("incomplete");
-        }}
-      >
-        Incompleted
-      </button>
-      <button
-        onClick={() => {
-          setFilterStatus("completed");
-        }}
-      >
-        completed
-      </button>
-    </div>
-  );
-};
+    ))}
+  </div>
+);
+
 export default StatusFilters;
