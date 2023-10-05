@@ -7,6 +7,7 @@ import initialTasks from "./initialStates/initialTasks";
 import ColorFilter from "./Components/ColorFilter";
 import StatusFilters from "./Components/StatusFilters";
 import ColorFilterList from "./Components/ColorFilterList";
+import "./App.css";
 
 const App = () => {
   const [tasks, setTasks] = useState(initialTasks);
@@ -14,8 +15,8 @@ const App = () => {
   const [filterColors, setFilterColors] = useState([]);
 
   return (
-    <div>
-      <Heading />
+    <div className="App">
+      <Heading  />
       <AddTask setTasks={setTasks} tasks={tasks} />
       <TaskList
         setTasks={setTasks}
