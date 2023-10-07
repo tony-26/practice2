@@ -1,17 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { onValue, ref, set } from "firebase/database";
+import { database } from "./firebase";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const TestDatabase = () => {
+  const writeTestHandler = () => {
+    set(ref(database, "test/node1/node2"), ["hello", "well", "tony"]);
+  };
+  const readTestHandler = () => {
+    const refUrl = ref(database, "/test/node1");
+    onValue(refUrl, (snapShot) => {
+      console.log(snapShot.val());
+    });
+  };
+  return (
+    <div>
+      <button onClick={writeTestHandler}>write test</button>
+      <button onClick={readTestHandler}>read test</button>
+    </div>
+  );
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<TestDatabase />);

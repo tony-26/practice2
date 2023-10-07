@@ -4,7 +4,6 @@ import Heading from "./Components/Heading";
 import AddTask from "./Components/AddTask";
 import TaskList from "./Components/TaskList";
 import initialTasks from "./initialStates/initialTasks";
-import ColorFilter from "./Components/ColorFilter";
 import StatusFilters from "./Components/StatusFilters";
 import ColorFilterList from "./Components/ColorFilterList";
 import "./App.css";
@@ -16,7 +15,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Heading  />
+      <Heading />
       <AddTask setTasks={setTasks} tasks={tasks} />
       <TaskList
         setTasks={setTasks}
