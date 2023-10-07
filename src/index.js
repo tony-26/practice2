@@ -7,10 +7,10 @@ import { database } from "./firebase";
 
 const TestDatabase = () => {
   const writeTestHandler = () => {
-    set(ref(database, "test/node1/node2"), ["hello", "well", "tony"]);
+    // set(ref(database, "/todos"), initialTasks);
   };
   const readTestHandler = () => {
-    const refUrl = ref(database, "/test/node1");
+    const refUrl = ref(database, "/todos");
     onValue(refUrl, (snapShot) => {
       console.log(snapShot.val());
     });
@@ -24,4 +24,4 @@ const TestDatabase = () => {
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<TestDatabase />);
+root.render(<App />);

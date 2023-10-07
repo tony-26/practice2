@@ -1,6 +1,5 @@
 import _ from "lodash";
 import TaskItem from "./TaskItem";
-import filterTasks from "../lib/filterTasks";
 import filterTasksV2 from "../lib/filterTasksV2";
 
 const TaskList = ({ tasks, setTasks, filterStatus, filterColors }) => {
