@@ -8,6 +8,7 @@ const TaskItem = ({ setTasks, tasks, i, task }) => {
       const copy = _.cloneDeep(tasks);
       copy[i].completed = !copy[i].completed;
       setTasks(copy);
+      set(ref(database, "/todos"), copy);
     };
   };
   return (
@@ -17,6 +18,7 @@ const TaskItem = ({ setTasks, tasks, i, task }) => {
           const copy = _.cloneDeep(tasks);
           const newTask = copy.slice(0, i).concat(copy.slice(i + 1));
           setTasks(newTask);
+          set(ref(database, "/todos"), newTask);
         }}
       >
         -
