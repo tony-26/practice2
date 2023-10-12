@@ -1,4 +1,6 @@
 import _ from "lodash";
+import { ref, set } from "firebase/database";
+import { database } from "../firebase";
 
 const TaskItem = ({ setTasks, tasks, i, task }) => {
   const completedToggle = (i) => {
@@ -30,6 +32,7 @@ const TaskItem = ({ setTasks, tasks, i, task }) => {
           const copy = _.cloneDeep(tasks);
           copy[i].color = e.target.value;
           setTasks(copy);
+          set(ref(database, "/todos"), copy);
         }}
       >
         <option value={""}></option>
