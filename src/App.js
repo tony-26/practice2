@@ -11,19 +11,25 @@ import { database } from "./firebase";
 
 const App = () => {
   const [tasks, setTasks] = useState(false);
-  const [filterStatus, setFilterStatus] = useState("all");
+  const [filterStatus, setFilterStatus] = useState(false);
   const [filterColors, setFilterColors] = useState([]);
+
   useEffect(() => {
-    const refUrl = ref(database, "/todos");
-    onValue(refUrl, (snapShot) => {
+    onValue(ref(database, "/todos"), (snapShot) => {
       setTasks(snapShot.val());
     });
+
+    onValue(ref(database, "/filterStatus"), (snapShot) => {
+      setFilterStatus(snapShot.val());
+      console.log(snapShot.val());
+    });
   }, []);
+
   return (
     <div className="App">
       <Heading />
       <AddTask setTasks={setTasks} tasks={tasks} />
-      {tasks === false ? (
+      {tasks === false || filterStatus === false ? (
         <h2>LOADING</h2>
       ) : (
         <TaskList
