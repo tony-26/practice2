@@ -10,7 +10,7 @@ import { ref, onValue } from "firebase/database";
 import { database } from "./firebase";
 
 const App = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(false);
   const [filterStatus, setFilterStatus] = useState("all");
   const [filterColors, setFilterColors] = useState([]);
   useEffect(() => {
@@ -23,12 +23,17 @@ const App = () => {
     <div className="App">
       <Heading />
       <AddTask setTasks={setTasks} tasks={tasks} />
-      <TaskList
-        setTasks={setTasks}
-        tasks={tasks}
-        filterStatus={filterStatus}
-        filterColors={filterColors}
-      />
+      {tasks === false ? (
+        <h2>LOADING</h2>
+      ) : (
+        <TaskList
+          setTasks={setTasks}
+          tasks={tasks}
+          filterStatus={filterStatus}
+          filterColors={filterColors}
+        />
+      )}
+
       <StatusFilters setFilterStatus={setFilterStatus} />
       <ColorFilterList setFilterColors={setFilterColors} />
     </div>

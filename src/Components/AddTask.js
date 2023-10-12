@@ -1,5 +1,7 @@
 import _ from "lodash";
 import { useState } from "react";
+import { set, ref } from "firebase/database";
+import { database } from "../firebase";
 
 const AddTask = ({ setTasks, tasks }) => {
   const [userInput, setUserInput] = useState("");
@@ -11,6 +13,7 @@ const AddTask = ({ setTasks, tasks }) => {
       completed: false,
     });
     setTasks(copyTasks);
+    set(ref(database, "/todos"), copyTasks);
     setUserInput("");
   };
   return (
