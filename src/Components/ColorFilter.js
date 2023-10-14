@@ -1,11 +1,15 @@
 import _ from "lodash";
-const ColorFilter = ({ filterColor, setFilterColors }) => {
+import { ref, set } from "firebase/database";
+import { database } from "../firebase";
+
+const ColorFilter = ({ filterColor, setFilterColors, filterColors }) => {
   return (
     <div>
       <span>{filterColor}</span>
       <input
         type="checkbox"
-        onClick={() => {
+        checked={filterColors.includes(filterColor)}
+        onChange={() => {
           setFilterColors((filterColors) => {
             let copy = _.cloneDeep(filterColors);
             if (filterColors.includes(filterColor)) {
@@ -13,6 +17,7 @@ const ColorFilter = ({ filterColor, setFilterColors }) => {
             } else {
               copy.push(filterColor);
             }
+            set(ref(database, "/filterColors"), copy);
             return copy;
           });
         }}
