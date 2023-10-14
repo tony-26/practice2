@@ -23,6 +23,7 @@ const App = () => {
       setFilterStatus(snapShot.val());
       console.log(snapShot.val());
     });
+    
   }, []);
 
   return (
