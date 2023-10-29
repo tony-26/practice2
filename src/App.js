@@ -6,7 +6,7 @@ import TaskList from "./Components/TaskList";
 import StatusFilters from "./Components/StatusFilters";
 import ColorFilterList from "./Components/ColorFilterList";
 import "./App.css";
-import { ref, onValue } from "firebase/database";
+import { set, ref, onValue } from "firebase/database";
 import { database } from "./firebase";
 
 const App = () => {
@@ -15,25 +15,34 @@ const App = () => {
   const [filterColors, setFilterColors] = useState(false);
 
   useEffect(() => {
-    onValue(ref(database, "/todos"), (snapShot) => {
-      setTasks(snapShot.val());
-    });
+    setTimeout(() => {
+      onValue(ref(database, "/todos"), (snapShot) => {
+        setTasks(snapShot.val());
+      });
 
-    onValue(ref(database, "/filterStatus"), (snapShot) => {
-      setFilterStatus(snapShot.val());
-    });
+      onValue(ref(database, "/filterStatus"), (snapShot) => {
+        setFilterStatus(snapShot.val());
+      });
 
-    onValue(ref(database, "/filterColors"), (snapShot) => {
-      const firebaseFilterColors =
-        snapShot.val() === null ? [] : snapShot.val();
-      setFilterColors(firebaseFilterColors);
-    });
+      onValue(ref(database, "/filterColors"), (snapShot) => {
+        const firebaseFilterColors =
+          snapShot.val() === null ? [] : snapShot.val();
+        setFilterColors(firebaseFilterColors);
+      });
+    }, 1000);
   }, []);
 
   return tasks === false || filterStatus === false || filterColors === false ? (
     <h2>LOADING</h2>
   ) : (
     <div className="App">
+      <button
+        onClick={() => {
+          set(ref(database, "/time"), new Date().getTime());
+        }}
+      >
+        get time
+      </button>
       <Heading />
       <AddTask setTasks={setTasks} tasks={tasks} />
       <TaskList

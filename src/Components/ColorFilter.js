@@ -10,16 +10,14 @@ const ColorFilter = ({ filterColor, setFilterColors, filterColors }) => {
         type="checkbox"
         checked={filterColors.includes(filterColor)}
         onChange={() => {
-          setFilterColors((filterColors) => {
-            let copy = _.cloneDeep(filterColors);
-            if (filterColors.includes(filterColor)) {
-              copy = copy.filter((color) => color !== filterColor);
-            } else {
-              copy.push(filterColor);
-            }
-            set(ref(database, "/filterColors"), copy);
-            return copy;
-          });
+          let copy = _.cloneDeep(filterColors);
+          if (filterColors.includes(filterColor)) {
+            copy = copy.filter((color) => color !== filterColor);
+          } else {
+            copy.push(filterColor);
+          }
+          setFilterColors(copy);
+          set(ref(database, "/filterColors"), copy);
         }}
       />
     </div>

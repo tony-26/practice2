@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.task-item {
+
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.box {
+  border: 2px solid black; /* Adjust thickness and color as needed */
+  padding: 20px; /* Space inside the box */
+  margin: 20px 0; /* Space outside the box */
+  width: fit-content; /* Makes the box only as wide as its content */
+}
+
+.box {
+  border-radius: 10px; /* Adjust as needed */
+}

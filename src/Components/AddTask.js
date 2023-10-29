@@ -26,6 +26,7 @@ const AddTask = ({ setTasks, tasks }) => {
       ></input>
 
       <button onClick={addTaskHandler}>Add Task</button>
+      
     </div>
   );
 };
